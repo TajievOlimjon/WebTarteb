@@ -4,13 +4,22 @@
 //=================================
 
 using Microsoft.EntityFrameworkCore;
-using WebApi.Models.Tasks;
-using Task = WebApi.Models.Tasks.Task;
+using Local = WebApi.Models.Tasks;
 
 namespace WebApi.Brokers.Storages
 {
     public partial class StorageBroker
     {
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Local.Task> Tasks { get; set; }
+        public async ValueTask<Local.Task> InsertTaskAsync(Local.Task task)
+        {
+            var broker = new StorageBroker(_configuration);
+
+            await broker.Tasks.AddAsync(task);
+
+            await broker.SaveChangesAsync();
+
+            return task;
+        }
     }
 }

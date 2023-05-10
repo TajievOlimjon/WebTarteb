@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Brokers.Storages
 {
-    public partial class StorageBroker : EFxceptionsContext
+    public partial class StorageBroker : EFxceptionsContext,IStorageBroker
     {
         private readonly IConfiguration _configuration;
         public StorageBroker(IConfiguration configuration)
@@ -19,11 +19,10 @@ namespace WebApi.Brokers.Storages
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = 
-                _configuration.GetConnectionString(name:"DefaultConnection");
+            var connectionString =
+                _configuration.GetConnectionString(name: "DefaultConnection");
 
             optionsBuilder.UseNpgsql(connectionString: connectionString);
-
         }
     }
 }
