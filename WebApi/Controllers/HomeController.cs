@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Brokers.Storages;
-using Local = WebApi.Models.Tasks;
+using Local = WebApi.Models.Tickets;
 
 namespace WebApi.Controllers
 {
@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         [HttpPost("AddNewTask")]
         public async ValueTask<IActionResult> PostTaskAsync()
         {
-            var task = new Local.Task
+            var task = new Local.Ticket
             {
                 Id = Guid.NewGuid(),
                 CreatedUserId=Guid.NewGuid(),
@@ -28,7 +28,7 @@ namespace WebApi.Controllers
                 Description="test",
                 Title="test",
                 AssigneeId=Guid.NewGuid(),
-                Status=Local.TaskStatus.DONE
+                Status=Local.TicketStatus.DONE
             };
 
             var result = await _storageBroker.InsertTaskAsync(task);
