@@ -10,14 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<StorageBroker>();
+builder.Services.AddTransient<IStorageBroker,StorageBroker>();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(config =>
+builder.Services.AddSwaggerGen();/*(config =>
 {
     config.SwaggerDoc(
         name: "v1",
         info:new OpenApiInfo { Title = "Tarteb.Api", Version = "v1" });
-});
+});*/
 
 var app = builder.Build();
 
@@ -25,10 +26,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
-
-    app.UseSwaggerUI(config =>config.SwaggerEndpoint(
+    app.UseSwaggerUI();
+    /*app.UseSwaggerUI(config =>config.SwaggerEndpoint(
         url:"swagger/v1/swagger.json",
-        name:"Tarteb.Api"));
+        name:"Tarteb.Api"));*/
 }
 
 app.UseHttpsRedirection();
