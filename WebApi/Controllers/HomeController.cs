@@ -17,8 +17,8 @@ namespace WebApi.Controllers
         [HttpGet("GetHomeMessage")]
         public ActionResult<string> GetHomeMessage() => "Tarteb is running";
 
-        [HttpPost("AddNewTask")]
-        public async ValueTask<IActionResult> PostTaskAsync()
+        [HttpPost("AddNewTicket")]
+        public async ValueTask<IActionResult> PostTicketAsync()
         {
             var task = new Local.Ticket
             {
@@ -34,6 +34,16 @@ namespace WebApi.Controllers
             var result = await _storageBroker.InsertTicketAsync(task);
 
             return Ok(result);
+        }
+        [HttpPut("UpdateTicket")]
+        public async ValueTask<IActionResult> PutTicketAsync()
+        {
+            return Ok();
+        }
+        [HttpDelete("DeleteTicket")]
+        public async ValueTask<IActionResult> DeleteTicketAsync()
+        {
+            return Ok();
         }
     }
 }
