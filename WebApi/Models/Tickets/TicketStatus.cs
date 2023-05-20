@@ -4,12 +4,14 @@
 //=================================
 
 
-using Local = WebApi.Models.Tasks;
-
-namespace WebApi.Brokers.Storages
+namespace WebApi.Models.Tickets
 {
-    public partial interface IStorageBroker
+    public enum TicketStatus
     {
-        ValueTask<Local.Task> InsertTaskAsync(Local.Task task);
+        UNKNOWN=1,
+        TODO=2,
+        INPROGRESS=3,
+        DONE=4
     }
 }
+
