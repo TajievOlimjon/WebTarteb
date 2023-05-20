@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Brokers.Storages
 {
-    public partial class StorageBroker : EFxceptionsContext,IStorageBroker
+    public partial class StorageBroker : EFxceptionsContext, IStorageBroker
     {
         private readonly IConfiguration _configuration;
         public StorageBroker(IConfiguration configuration)
