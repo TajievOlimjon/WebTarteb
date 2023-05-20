@@ -7,7 +7,7 @@ using WebApi.Enums;
 
 namespace WebApi.Models.Tickets
 {
-    public class Ticket
+    public class Ticket : BaseEntity
     {
         public Guid Id { get; set; }
         public string Title { get; set; } = null!;
@@ -16,8 +16,6 @@ namespace WebApi.Models.Tickets
         public DateTimeOffset Deadline { get; set; }
         public Guid? AssigneeId { get; set; }
         public TicketStatus Status { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
-        public DateTimeOffset UpdatedDate { get; set; }
         public Guid CreatedUserId { get; set; }
         public Guid UpdatedUserId { get; set; }
     }
