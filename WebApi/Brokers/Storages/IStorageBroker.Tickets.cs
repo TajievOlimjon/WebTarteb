@@ -10,7 +10,7 @@ namespace WebApi.Brokers.Storages
 {
     public partial interface IStorageBroker
     {
-        ValueTask<Ticket> GetAllTicketsAsync(Ticket task);
+        ValueTask<Ticket> GetAllTicketsAsync();
         ValueTask<Ticket> GetTicketByIdAsync(Ticket task);
         ValueTask<Ticket> InsertTicketAsync(Ticket task);
         ValueTask<Ticket> UpdateTicketAsync(Ticket task);

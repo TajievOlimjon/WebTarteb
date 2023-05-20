@@ -3,9 +3,14 @@
 // Free to use to bring order in your workplace
 //=================================
 
-
-namespace WebApi.Brokers.Storages
+namespace WebApi.Enums
 {
-    public partial interface IStorageBroker
-    { }
+    public enum TicketStatus
+    {
+        UNKNOWN = 1,
+        TODO = 2,
+        INPROGRESS = 3,
+        DONE = 4
+    }
 }
+

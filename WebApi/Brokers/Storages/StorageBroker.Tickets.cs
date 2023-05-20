@@ -17,7 +17,7 @@ namespace WebApi.Brokers.Storages
             throw new NotImplementedException();
         }
 
-        public ValueTask<Ticket> GetAllTicketsAsync(Ticket task)
+        public ValueTask<Ticket> GetAllTicketsAsync()
         {
             throw new NotImplementedException();
         }

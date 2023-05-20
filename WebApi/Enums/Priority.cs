@@ -4,14 +4,13 @@
 //=================================
 
 
-namespace WebApi.Models.Tickets
+
+namespace WebApi.Enums
 {
-    public enum TicketStatus
+    public enum Priority
     {
-        UNKNOWN=1,
-        TODO=2,
-        INPROGRESS=3,
-        DONE=4
+        LOW = 1,
+        MEDIUM = 2,
+        HIGH = 3
     }
 }
-
