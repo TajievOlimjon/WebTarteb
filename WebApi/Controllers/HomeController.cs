@@ -31,7 +31,7 @@ namespace WebApi.Controllers
                 Status=Local.TicketStatus.DONE
             };
 
-            var result = await _storageBroker.InsertTaskAsync(task);
+            var result = await _storageBroker.InsertTicketAsync(task);
 
             return Ok(result);
         }
